@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarini Parashar - Professional Resume</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4A2C8B;
+            --secondary: #6B46C1;
+            --accent: #9F7AEA;
+            --light: #FAF5FF;
+            --text: #2D3748;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 2rem;
+            background: var(--light);
+            color: var(--text);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: var(--primary);
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .profile-section {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            object-fit: cover;
+            margin: 0px 0 0 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        .name-title {
+            padding-left: 2rem;
+            border-left: 4px solid var(--accent);
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .objective {
+            color: var(--light);
+            font-size: 1.1rem;
+            margin: 1rem 0;
+            max-width: 600px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            justify-content: center;
+        }
+
+        .contact-item {
+            color: var(--light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            transition: transform 0.2s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .sidebar {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .section-title {
+            color: var(--primary);
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .section-title:hover::after {
+            width: 80px;
+        }
+
+        .skill-tag {
+            background: white;
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin: 0.3rem;
+            display: inline-block;
+            font-weight: 500;
+            border: 1px solid #E9D8FD;
+            transition: all 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .timeline-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--accent);
+            transition: border-color 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            border-color: var(--primary);
+        }
+
+        .project-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border: 1px solid #EDF2F7;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(107,70,193,0.1);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--accent);
+            border-radius: 8px 0 0 8px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .activity-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .activity-item {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: var(--light);
+            border-radius: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        .activity-item:hover {
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 768px) {
+            .profile-section {
+                grid-template-columns: 1fr;
+            }
+            .profile-img {
+                margin: -120px auto 0;
+            }
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="profile-section">
+                <img src="pfp.jpg" alt="Tarini Parashar" class="profile-img">
+                <div class="name-title">
+                    <h1>Tarini Parashar</h1>
+                    <p class="objective">Motivated Computer Science Engineering student with a passion for technology and innovation. Dedicated to academic excellence and developing practical software development skills.</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            tariniparashar09@gmail.com
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            +91 9625382693
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-layout">
+            <div class="sidebar">
+                <div class="section">
+                    <h3 class="section-title">Education</h3>
+                    <div class="timeline-item">
+                        <h4>BTech Computer Science</h4>
+                        <p>South Asian University</p>
+                        <p><em>Current Student</em></p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Class 12 (Science)</h4>
+                        <p>CBSE Board</p>
+                        <p>81.2%</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Class 10</h4>
+                        <p>CBSE Board</p>
+                        <p>94.7%</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Hindustani Classical Music</h4>
+                        <p>Prayag University</p>
+                        <p>Senior Diploma with Distinction</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Technical Skills</h3>
+                    <div class="skill-tag">Python</div>
+                    <div class="skill-tag">C Programming</div>
+                    <div class="skill-tag">HTML/CSS</div>
+                    <div class="skill-tag">JavaScript</div>
+                    <div class="skill-tag">Data Structures</div>
+                    <div class="skill-tag">Database Systems</div>
+                    <div class="skill-tag">Web Development</div>
+                    <div class="skill-tag">Optimization</div>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="section">
+                    <h3 class="section-title">Professional Projects</h3>
+                    <div class="project-card">
+                        <h4>Personal Portfolio Website</h4>
+                        <p>Designed and developed responsive portfolio using HTML, CSS, and JavaScript to showcase academic projects and skills.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>Student Management System</h4>
+                        <p>Created Java/MySQL application to manage student records, courses, and grades with database integration.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>Weather Application</h4>
+                        <p>Developed weather app using HTML/CSS/JavaScript with real-time API data integration.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>Data Visualization Dashboard</h4>
+                        <p>Built interactive analytics dashboard using Python's Matplotlib and Pandas libraries.</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Achievements & Leadership</h3>
+                    <ul class="activity-list">
+                        <li class="activity-item">
+                            🏆 Gold Medalist - Taekwondo Championships 2014 & 2015
+                        </li>
+                        <li class="activity-item">
+                            🏅 2nd Place - Kho-Kho at Khel Kumbh 2025
+                        </li>
+                        <li class="activity-item">
+                            🤖 Completed Mechanical Level - Avishkar Robotronics Club
+                        </li>
+                        <li class="activity-item">
+                            🎭 Active Member - Tamasha Theatre Club
+                        </li>
+                        <li class="activity-item">
+                            🏃♀️ Vedanta Half Marathon Participant 2022
+                        </li>
+                        <li class="activity-item">
+                            🏆 Science Exhibition Winner - Hydraulic Crane Model
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Extracurricular Activities</h3>
+                    <div class="project-card">
+                        <h4>Sports & Athletics</h4>
+                        <p>🏌️♀️ Competed in 12th Army Open Ladies Golf Championship (2018)</p>
+                        <p>🏀 Represented school in Zonal State Basketball Tournaments</p>
+                        <p>🏃♀️ University Kho-Kho Team Member</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>Martial Arts</h4>
+                        <p>🥋 Blue Belt Holder in Taekwondo</p>
+                        <p>🥇 Gold Medalist - 1st & 2nd Grand Taekwondo Championships</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
